@@ -11,6 +11,10 @@ module RealNotification
         template "notification_channel.rb", "app/channels/#{file_name}_channel.rb"
       end
 
+      def create_coffee_script
+        template "notification.coffee", "app/assets/javascripts/channels/#{file_name}.coffee"
+      end
+
       private
 
         def file_name
