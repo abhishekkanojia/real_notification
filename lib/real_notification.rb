@@ -1,6 +1,17 @@
 require "real_notification/version"
-require "real_notification/can_send_real_notification"
 
 module RealNotification
-  # Your code goes here...
+  module ClassMethods
+    def broadcast_notification(channel_name, data)
+      ActionCable.server.broadcast channel_name, data: data
+    end
+  end
+
+  def self.included(receiver)
+    receiver.extend(ClassMethods)
+  end
+end
+
+class ActiveRecord::Base
+  include RealNotification
 end
