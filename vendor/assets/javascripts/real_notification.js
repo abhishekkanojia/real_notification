@@ -21,8 +21,8 @@ RealNotification.prototype.CSS_CLASSES = {
 
 RealNotification.prototype.show = function(response) {
   this.positionNotification();
-  this.notificationTitle.text(response.title);
-  this.notificationMessage.text(response.message);
+  this.notificationTitle.text(response.data.title);
+  this.notificationMessage.text(response.data.message);
   this.notificationDiv.show()
                       .delay(this.notificationHideDelay)
                       .fadeOut();
