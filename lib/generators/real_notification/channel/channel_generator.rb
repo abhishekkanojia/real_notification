@@ -12,7 +12,7 @@ module RealNotification
       end
 
       def create_coffee_script
-        template "notification.coffee", "app/assets/javascripts/channels/#{file_name}.coffee"
+        template "notification.js", "app/assets/javascripts/channels/#{file_name}.js"
       end
 
       private

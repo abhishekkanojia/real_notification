@@ -1,17 +1,8 @@
 require "real_notification/version"
+require "real_notification/notification_helper" if defined? ActiveRecord::Base
 
 module RealNotification
-  module ClassMethods
-    def broadcast_notification(channel_name, data)
-      ActionCable.server.broadcast channel_name, data: data
-    end
+  module Rails
+    require 'real_notification/engine'
   end
-
-  def self.included(receiver)
-    receiver.extend(ClassMethods)
-  end
-end
-
-class ActiveRecord::Base
-  include RealNotification
 end
