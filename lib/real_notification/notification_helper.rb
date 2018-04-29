@@ -1,5 +1,5 @@
 module NotificationHelper
-  def broadcast_notification(channel_name, data)
+  def broadcast_notification(channel_name = 'notification_channel', data)
     ActionCable.server.broadcast channel_name, data
   end
 end
